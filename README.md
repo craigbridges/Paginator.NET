@@ -15,7 +15,7 @@ Install-Package Paginator.NET
  ```
 
 ## Synchronous and Asynchronous Pagination
-Paginator can handle synchronous and asynchronous pagination. Synchronous pagination is handled in the `Paginator.NET` NuGet package, but asynchronous pagination is handled in the `Paginator.NET.Async NuGet` package.
+Paginator can handle synchronous and asynchronous pagination. Synchronous pagination is handled in the `Paginator.NET` NuGet package, but asynchronous pagination is handled in the `Paginator.NET.Async` NuGet package.
 
 ## Synchronous Example
 ```c#
