@@ -1,21 +1,21 @@
-# Paginator.Net
-A lightweight library written in C# .NET Standard, that automatically handles paginating collections of objects in .NET code.
+# Paginator.NET
+A lightweight library written in C# .NET Standard for handling paginating collections of objects in .NET code.
 
 ## Getting Started
 Paginator can be installed using the NuGet package manager:
 
 ```
-Install-Package Paginator
+Install-Package Paginator.NET
 ```
 
  Or the dotnet CLI:
 
  ```
- dotnet add package Paginator
+ dotnet add package Paginator.NET
  ```
 
 ## Synchronous and Asynchronous Pagination
-Paginator can handle synchronous and asynchronous pagination. Synchronous pagination is handled in the `Paginator` NuGet package, but asynchronous pagination is handled in the `Paginator.Async NuGet` package.
+Paginator can handle synchronous and asynchronous pagination. Synchronous pagination is handled in the `Paginator.NET` NuGet package, but asynchronous pagination is handled in the `Paginator.NET.Async NuGet` package.
 
 ## Synchronous Example
 ```c#
@@ -63,7 +63,7 @@ foreach (var word in firstPage.Results)
 */
 ```
 
-## Asyncronous Example
+## Asynchronous Example
 ```c#
 using Paginator.Async;
 
@@ -118,11 +118,11 @@ foreach (var word in firstPage.Results)
 If you are using Entity Framework Core asynchronously, there is a NuGet package that allows IQueryable to be used with IAsyncPagedCollection, the package can be installed using the NuGet package manager:
 
 ```
-Install-Package Paginator.Async.EntityFrameworkCore
+Install-Package Paginator.NET.EntityFrameworkCore
 ```
 
  Or the dotnet CLI:
 
  ```
- dotnet add package Paginator.Async.EntityFrameworkCore
+ dotnet add package Paginator.NET.EntityFrameworkCore
  ```

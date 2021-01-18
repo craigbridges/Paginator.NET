@@ -2,12 +2,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Paginator.NET</PackageId>
     <Product>Paginator.NET</Product>
     <Description>A lightweight library written in C# .NET Standard, that automatically handles paginating collections of objects in .NET code.</Description>
     <Copyright>Copyright © Craig Bridges 2021</Copyright>
     <Authors>Craig Bridges</Authors>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <Version>1.0.0</Version>
+    <LicenseUrl>https://github.com/craigbridges/Paginator.NET/blob/main/LICENSE</LicenseUrl>
     <RepositoryUrl>https://github.com/craigbridges/Paginator.NET</RepositoryUrl>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageReleaseNotes></PackageReleaseNotes>
