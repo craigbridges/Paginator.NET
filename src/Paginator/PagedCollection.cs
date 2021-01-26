@@ -58,7 +58,7 @@
 
         public IEnumerable<PagedResult<T>> GetAllPages()
         {
-            for (var number = 0; number <= this.PageCount-1; number++)
+            for (var number = 1; number <= this.PageCount; number++)
             {
                 yield return GetPage(number);
             }
@@ -66,7 +66,14 @@
 
         public IEnumerable<T> GetItems(int pageNumber)
         {
-            if (pageNumber < 1 || pageNumber > this.PageCount)
+            var pageCount = this.PageCount;
+
+            if (pageNumber == 1 && pageCount == 0)
+            {
+                return new T[] { };
+            }
+
+            if (pageNumber < 1 || pageNumber > pageCount)
             {
                 throw new ArgumentOutOfRangeException
                 (
@@ -83,9 +90,7 @@
             var pageSize = this.PageSize;
             var skipCount = ((pageNumber * pageSize) - pageSize);
 
-            var items = _source.Skip(skipCount).Take(pageSize);
-
-            return items;
+            return _source.Skip(skipCount).Take(pageSize);
         }
 
         public IEnumerable<T> GetAllItems() => _source;

@@ -28,6 +28,23 @@
         static readonly string[] ThirdPageWords = { "nuget" };
 
         [Test]
+        public async Task PaginateAsync_First_Page_Using_EmptyCollection()
+        {
+            // Arrange
+            var pages = new AsyncPagedCollection<string>(AsyncEnumerable.Empty<string>(), AsynchronousPaginationUnitTest.PageSize);
+
+            // Act
+            var page = await pages[1].ConfigureAwait(false);
+
+            // Assert
+            CollectionAssert.AreEqual
+            (
+                page.Results.ToArray(),
+                new string[] { }
+            );
+        }
+
+        [Test]
         public async Task PaginateAsync_First_Page_Using_PagedCollection()
         {
             // Arrange

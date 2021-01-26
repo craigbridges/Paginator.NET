@@ -7,12 +7,12 @@
     <Description>A lightweight library written in C# .NET Standard, that automatically handles paginating collections of objects in .NET code.</Description>
     <Copyright>Copyright © Craig Bridges 2021</Copyright>
     <Authors>Craig Bridges</Authors>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <Version>1.0.2</Version>
     <LicenseUrl>https://github.com/craigbridges/Paginator.NET/blob/main/LICENSE</LicenseUrl>
     <RepositoryUrl>https://github.com/craigbridges/Paginator.NET</RepositoryUrl>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed bug where getting the first page threw an exception if the collection was empty.</PackageReleaseNotes>
     <Tags>Craig Bridges Paginator Pagination .NET async dotnet netstandard netcore C#</Tags>
   </PropertyGroup>
   <ItemGroup>

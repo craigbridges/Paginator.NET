@@ -80,15 +80,23 @@
 
         public async Task<IEnumerable<PagedResult<T>>> GetAllPagesAsync(CancellationToken cancellationToken = default)
         {
+            var pageSize = this.PageSize;
             var pages = new List<PagedResult<T>>();
 
             var allItems = await GetAllItemsAsync(cancellationToken).ConfigureAwait(false);
             var pageCount = await GetPageCountAsync(cancellationToken).ConfigureAwait(false);
             var itemCount = allItems.Count();
 
+            if (itemCount == 0)
+            {
+                return new PagedResult<T>[]
+                {
+                    new PagedResult<T>(1, 0, pageSize, 0, new T[] { })
+                };
+            }
+
             for (var pageNumber = 1; pageNumber <= pageCount; pageNumber++)
             {
-                var pageSize = this.PageSize;
                 var skipCount = (pageNumber * pageSize);
                 var pageItems = allItems.Skip(skipCount).Take(pageSize);
 
@@ -112,7 +120,14 @@
 
         public async Task<IEnumerable<T>> GetItemsAsync(int pageNumber, CancellationToken cancellationToken = default)
         {
-            if (pageNumber < 1 || pageNumber > _cachedPageCount)
+            var pageCount = await GetPageCountAsync(cancellationToken).ConfigureAwait(false);
+
+            if (pageNumber == 1 && pageCount == 0)
+            {
+                return new T[] { };
+            }
+
+            if (pageNumber < 1 || pageNumber > pageCount)
             {
                 throw new ArgumentOutOfRangeException
                 (

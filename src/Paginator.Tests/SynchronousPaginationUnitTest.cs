@@ -23,6 +23,23 @@
         static readonly string[] ThirdPageWords = { "nuget" };
 
         [Test]
+        public void Paginate_First_Page_Using_EmptyCollection()
+        {
+            // Arrange
+            var pages = new PagedCollection<string>(new string[] { }, SynchronousPaginationUnitTest.PageSize);
+
+            // Act
+            var page = pages[1];
+
+            // Assert
+            CollectionAssert.AreEqual
+            (
+                page.Results.ToArray(),
+                new string[] { }
+            );
+        }
+
+        [Test]
         public void Paginate_First_Page_Using_PagedCollection()
         {
             // Arrange
