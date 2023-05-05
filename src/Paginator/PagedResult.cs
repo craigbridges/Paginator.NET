@@ -1,8 +1,5 @@
 ﻿namespace Paginator
 {
-    using System;
-    using System.Collections.Generic;
-    
     /// <summary>
     /// Represents the result of a single page from a paged collection
     /// </summary>
@@ -11,11 +8,11 @@
     {
         public PagedResult(int pageNumber, int pageCount, int pageSize, int itemCount, IEnumerable<T> results)
         {
-            this.CurrentPageNumber = pageNumber;
-            this.PageCount = pageCount;
-            this.PageSize = pageSize;
-            this.TotalItemCount = itemCount;
-            this.Results = results ?? throw new ArgumentNullException(nameof(results));
+            CurrentPageNumber = pageNumber;
+            PageCount = pageCount;
+            PageSize = pageSize;
+            TotalItemCount = itemCount;
+            Results = results ?? throw new ArgumentNullException(nameof(results));
         }
 
         internal protected PagedResult(IPagedCollection<T> collection, int pageNumber)
@@ -25,11 +22,11 @@
                 throw new ArgumentNullException(nameof(collection));
             }
 
-            this.CurrentPageNumber = pageNumber;
-            this.PageCount = collection.PageCount;
-            this.PageSize = collection.PageSize;
-            this.TotalItemCount = collection.ItemCount;
-            this.Results = collection.GetItems(pageNumber);
+            CurrentPageNumber = pageNumber;
+            PageCount = collection.PageCount;
+            PageSize = collection.PageSize;
+            TotalItemCount = collection.ItemCount;
+            Results = collection.GetItems(pageNumber);
         }
 
         /// <summary>
@@ -61,9 +58,6 @@
         /// Gets a description of the paged result
         /// </summary>
         /// <returns>A page indicator description</returns>
-        public override string ToString()
-        {
-            return $"Page {this.CurrentPageNumber} of {this.PageCount}";
-        }
+        public override string ToString() => $"Page {CurrentPageNumber} of {PageCount}";
     }
 }

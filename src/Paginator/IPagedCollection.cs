@@ -1,7 +1,5 @@
 ﻿namespace Paginator
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Defines a contract for a paginated collection of objects
     /// </summary>

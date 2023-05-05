@@ -1,7 +1,5 @@
 ﻿namespace Paginator
 {
-    using System.Collections.Generic;
-    
     public static class EnumerableExtensions
     {
         /// <summary>

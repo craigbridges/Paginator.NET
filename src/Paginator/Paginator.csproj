@@ -1,18 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+	<TargetFramework>net7.0</TargetFramework>
+	<Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Paginator.NET</PackageId>
     <Product>Paginator.NET</Product>
     <Description>A lightweight library written in C# .NET Standard, that automatically handles paginating collections of objects in .NET code.</Description>
-    <Copyright>Copyright © Craig Bridges 2021</Copyright>
+    <Copyright>Copyright © Craig Bridges 2023</Copyright>
     <Authors>Craig Bridges</Authors>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
-    <Version>1.0.2</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <Version>1.1.0</Version>
     <LicenseUrl>https://github.com/craigbridges/Paginator.NET/blob/main/LICENSE</LicenseUrl>
     <RepositoryUrl>https://github.com/craigbridges/Paginator.NET</RepositoryUrl>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-    <PackageReleaseNotes>Fixed bug where getting the first page threw an exception if the collection was empty.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgraded to .NET 7.0.</PackageReleaseNotes>
     <Tags>Craig Bridges Paginator Pagination .NET dotnet netstandard netcore C#</Tags>
   </PropertyGroup>
 </Project>

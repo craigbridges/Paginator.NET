@@ -1,22 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+	<TargetFramework>net7.0</TargetFramework>
+	<Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Paginator.NET.EntityFrameworkCore</PackageId>
     <Product>Paginator.NET</Product>
     <Description>A lightweight library written in C# .NET Standard, that automatically handles paginating collections of objects in .NET code.</Description>
-    <Copyright>Copyright © Craig Bridges 2021</Copyright>
+    <Copyright>Copyright © Craig Bridges 2023</Copyright>
     <Authors>Craig Bridges</Authors>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <Version>1.0.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <Version>1.1.0</Version>
     <LicenseUrl>https://github.com/craigbridges/Paginator.NET/blob/main/LICENSE</LicenseUrl>
     <RepositoryUrl>https://github.com/craigbridges/Paginator.NET</RepositoryUrl>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-    <PackageReleaseNotes></PackageReleaseNotes>
+	<PackageReleaseNotes>Upgraded to .NET 7.0 and EF Core 7.</PackageReleaseNotes>
     <Tags>Craig Bridges Paginator Pagination EntityFrameworkCore .NET async dotnet netstandard netcore C#</Tags>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Paginator\Paginator.csproj" />

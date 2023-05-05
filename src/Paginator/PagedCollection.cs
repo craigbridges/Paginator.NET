@@ -1,10 +1,5 @@
 ﻿namespace Paginator
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// Represents the default implementation for IPagedCollection
     /// </summary>
@@ -14,7 +9,7 @@
         private readonly IQueryable<T> _source;
         
         public PagedCollection(IEnumerable<T> source, int pageSize)
-            : this(source?.AsQueryable(), pageSize)
+            : this(source.AsQueryable(), pageSize)
         { }
 
         public PagedCollection(IQueryable<T> source, int pageSize)
@@ -29,9 +24,9 @@
             var totalCount = source.Count();
             var pageCount = CalculatePageCount(pageSize, totalCount);
 
-            this.PageSize = pageSize;
-            this.PageCount = pageCount;
-            this.ItemCount = totalCount;
+            PageSize = pageSize;
+            PageCount = pageCount;
+            ItemCount = totalCount;
         }
 
         protected int CalculatePageCount(int pageSize, int totalCount)
@@ -58,7 +53,7 @@
 
         public IEnumerable<PagedResult<T>> GetAllPages()
         {
-            for (var number = 1; number <= this.PageCount; number++)
+            for (var number = 1; number <= PageCount; number++)
             {
                 yield return GetPage(number);
             }
@@ -66,11 +61,11 @@
 
         public IEnumerable<T> GetItems(int pageNumber)
         {
-            var pageCount = this.PageCount;
+            var pageCount = PageCount;
 
             if (pageNumber == 1 && pageCount == 0)
             {
-                return new T[] { };
+                return Array.Empty<T>();
             }
 
             if (pageNumber < 1 || pageNumber > pageCount)
@@ -82,12 +77,12 @@
                 );
             }
 
-            if (this.ItemCount == 0)
+            if (ItemCount == 0)
             {
                 return _source;
             }
 
-            var pageSize = this.PageSize;
+            var pageSize = PageSize;
             var skipCount = ((pageNumber * pageSize) - pageSize);
 
             return _source.Skip(skipCount).Take(pageSize);
